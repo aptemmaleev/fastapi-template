@@ -14,7 +14,8 @@ async def main():
         host=SETTINGS.API_HOST, 
         port=SETTINGS.API_PORT, 
         log_level=SETTINGS.LOGGING_LEVEL.lower(), 
-        reload=True
+        reload=True,
+        reload_includes=["app"]
     )
 
 if __name__ == '__main__':
