@@ -1,6 +1,6 @@
 import asyncio 
+import uvicorn
 
-from app.api.server import start_api
 from app.logger import setup
 from app.settings import SETTINGS
 
@@ -9,7 +9,13 @@ async def main():
     # Setup logger
     setup()
     # Start server
-    start_api()
+    uvicorn.run(
+        app="app.api.server:app", 
+        host=SETTINGS.API_HOST, 
+        port=SETTINGS.API_PORT, 
+        log_level=SETTINGS.LOGGING_LEVEL.lower(), 
+        reload=True
+    )
 
 if __name__ == '__main__':
     loop = asyncio.new_event_loop()

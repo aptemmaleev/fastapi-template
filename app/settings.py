@@ -10,7 +10,7 @@ class Settings():
     MONGODB_URL: SecretStr = SecretStr(getenv("MONGODB_URL"))
     MONGODB_DB: SecretStr = SecretStr(getenv("MONGODB_DB"))
     LOGGING_LEVEL: str = getenv("LOGGING_LEVEL")
-    API_PORT: int = getenv("API_PORT")
+    API_PORT: int = int(getenv("API_PORT"))
     API_HOST: str = getenv("API_HOST")
 
 SETTINGS = Settings()
